@@ -258,7 +258,7 @@ namespace Tbs4
             try
             {
                 comms.Open();
-                
+                Thread.Sleep(1000);
                 comms.WriteLine("query version");
                 string message = comms.ReadLine();
                 if (message.StartsWith( "<version="))
