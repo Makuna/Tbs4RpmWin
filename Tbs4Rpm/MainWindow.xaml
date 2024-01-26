@@ -9,7 +9,7 @@
             <RowDefinition Height="23"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>            <!-- Anzahl Spalten -->
+            <Grid.ColumnDefinitions>            <!-- Anzahl Spalten --> 
                 <ColumnDefinition Width="*"/>   <!-- Spalte 1 -->
                 <ColumnDefinition Width="*"/>   <!-- Spalte 2 -->
                 <!-- if(numberOfCylinders > 2) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app - ->
