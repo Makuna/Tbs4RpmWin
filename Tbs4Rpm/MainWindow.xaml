@@ -12,6 +12,11 @@
             <Grid.ColumnDefinitions>            <!-- Anzahl Spalten -->
                 <ColumnDefinition Width="*"/>   <!-- Spalte 1 -->
                 <ColumnDefinition Width="*"/>   <!-- Spalte 2 -->
+                <!-- if(numberOfCylinders > 2) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app - ->
+                <ColumnDefinition Width="*"/>   <!- - Spalte 3 - ->                
+                <!- - if(numberOfCylinders > 3) - -> <!- - this would make the display adapt to the number of cylinders committed by the Arduino app - ->
+                <ColumnDefinition Width="*"/>   <!- - Spalte 4 - -> 
+                -->                
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -103,6 +108,103 @@
                 </StackPanel>
                 <Label Name="tbs2RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
             </Grid>
+            <!-- if(numberOfCylinders > 2) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app -->
+            <!-- 
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Rectangle Margin="1,0" Stroke="Black" Grid.RowSpan="3"/>
+                <Label Name="tbs3Label" Content="0.00 Kpa" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="16"/>
+                <Rectangle Margin="10,0" Stroke="LightGray" Fill="Snow" Grid.Row="1"/>
+                <Label Content="3" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="72" FontWeight="Bold" Foreground="Gainsboro"/>
+                <Grid Margin="20,10" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="0" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="2" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="3" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="4" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="5" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="6" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="7" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="8" VerticalAlignment="Bottom"/>
+                </Grid>
+                
+
+                <Canvas Name="tbs3" Margin="20,10" Grid.Row="1">
+                    <Rectangle Name="tbs3MinMax" Fill="LightGray" Width="{Binding ElementName=tbs3, Path=ActualWidth}" Height="20" Canvas.Top="100"/>
+                    <Rectangle Name="tbs3Reading" Width="{Binding ElementName=tbs3, Path=ActualWidth}" Height="7" Stroke="DarkGreen" Fill="GreenYellow" Canvas.Top="105"/>
+                    <Rectangle Name="tbs3Average" Width="{Binding ElementName=tbs3, Path=ActualWidth}" Height="3" Stroke="Red" Fill="Tomato" Canvas.Top="115"/>
+                </Canvas>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2,2">
+                    <Label Content=" D"  FontFamily="Symbol" FontSize="14"/>
+                    <Label Name="tbs3DeltaLabel" Content="0.00 Kpa" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="14"  />
+                </StackPanel>
+                <Label Name="tbs3RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
+            </Grid>
+            -->
+            <!-- if(numberOfCylinders > 3) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app -->
+            <!--
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Rectangle Margin="1,0" Stroke="Black" Grid.RowSpan="3"/>
+                <Label Name="tbs4Label" Content="0.00 Kpa" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="16"/>
+                <Rectangle Margin="10,0" Stroke="LightGray" Fill="Snow" Grid.Row="1"/>
+                <Label Content="4" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="72" FontWeight="Bold" Foreground="Gainsboro"/>
+
+                <Grid Margin="20,10" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="0" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="1" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="2" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="3" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="4" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="5" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="6" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="SteelBlue" Margin="10,0" Height="1" Grid.Row="7" VerticalAlignment="Bottom"/>
+                    <Rectangle Stroke="LightBlue" Margin="20,0" Height="1" Grid.Row="8" VerticalAlignment="Bottom"/>
+                </Grid>
+                <Canvas Name="tbs4" Margin="20,10" Grid.Row="1">
+                    <Rectangle Name="tbs4MinMax" Fill="LightGray" Width="{Binding ElementName=tbs4, Path=ActualWidth}" Height="20" Canvas.Top="100"/>
+                    <Rectangle Name="tbs4Reading" Width="{Binding ElementName=tbs4, Path=ActualWidth}" Height="7" Stroke="DarkGreen" Fill="GreenYellow" Canvas.Top="105"/>
+                    <Rectangle Name="tbs4Average" Width="{Binding ElementName=tbs4, Path=ActualWidth}" Height="3" Stroke="Red" Fill="Tomato" Canvas.Top="115"/>
+                </Canvas>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="2,2">
+                    <Label Content=" D"  FontFamily="Symbol" FontSize="14"/>
+                    <Label Name="tbs4DeltaLabel" Content="0.00 Kpa" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="14"  />
+                </StackPanel>
+                <Label Name="tbs4RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
+            </Grid>
+        -->
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
