@@ -229,19 +229,15 @@ namespace Tbs4
         {
             string[] ports = SerialPort.GetPortNames();
 
-            // find the first port skipping any with single digit
-            // or in the portsSkip list
+            // find the first port skipping any in the portsSkip list
             for (int indexPort = 0; indexPort < ports.GetLength(0); indexPort++)
             {
                 string portName = ports[indexPort];
-                if (portName.Length > 4) // skip COM5
-                {
                     if (!portsSkip.Contains(portName))
                     {
                         return portName;
                     }
                 }
-            }
 
             return null;
         }
@@ -249,16 +245,19 @@ namespace Tbs4
         private bool ConnectPort(string portName)
         {
             bool found = false;
-            comms = new SerialPort(portName, 19200, Parity.None);
+            //comms = new SerialPort(portName, 19200, Parity.None);
+            comms = new SerialPort(portName, 19200, Parity.None, 8, (StopBits) 1);
             comms.NewLine = "\r\n";
-            comms.RtsEnable = true;
-            comms.DtrEnable = true;
+            comms.RtsEnable = false; // true;
+            comms.DtrEnable = false; // true;
             comms.ErrorReceived += comms_ErrorReceived;
             comms.ReadTimeout = 2000; // large for initial setup
             try
             {
+                for(int x=0; ((x<5) && (found == false)); x++)          // 5-mal versuchen, den Arduino zu kontaktieren, Harry
+                {
                 comms.Open();
-                Thread.Sleep(1000);
+                    Thread.Sleep(200);                                  // 200 ms sind genug (in Verbindung mit 5 Versuchen), Harry
                 comms.WriteLine("query version");
                 string message = comms.ReadLine();
                 if (message.StartsWith( "<version="))
@@ -273,6 +272,7 @@ namespace Tbs4
                     }
                 }
             }
+}
             catch (Exception e)
             {
                 comms.Close();
@@ -639,26 +639,26 @@ namespace Tbs4
                                             tbs2MinMax);
                                     break;
                                 case 2:
-                                    UpdateGraphBar(sample.Channels[indexChannel],
-                                            sample.Channels[indexChannel],
-                                            tbs3Label,
-                                            tbs3DeltaLabel,
-                                            tbs3RpmLabel,
-                                            tbs3,
-                                            tbs3Average,
-                                            tbs3Reading,
-                                            tbs3MinMax);
+                                    //UpdateGraphBar(sample.Channels[indexChannel],
+                                            //sample.Channels[indexChannel],
+                                            //tbs3Label,
+                                            //tbs3DeltaLabel,
+                                            //tbs3RpmLabel,
+                                            //tbs3,
+                                            //tbs3Average,
+                                            //tbs3Reading,
+                                            //tbs3MinMax);
                                     break;
                                 case 3:
-                                    UpdateGraphBar(sample.Channels[indexChannel],
-                                            sample.Channels[indexChannel],
-                                            tbs4Label,
-                                            tbs4DeltaLabel,
-                                            tbs4RpmLabel,
-                                            tbs4,
-                                            tbs4Average,
-                                            tbs4Reading,
-                                            tbs4MinMax);
+                                    //UpdateGraphBar(sample.Channels[indexChannel],
+                                            //sample.Channels[indexChannel],
+                                            //tbs4Label,
+                                            //tbs4DeltaLabel,
+                                            //tbs4RpmLabel,
+                                            //tbs4,
+                                            //tbs4Average,
+                                            //tbs4Reading,
+                                            //tbs4MinMax);
                                     break;
                             }
                         }
