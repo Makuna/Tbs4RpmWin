@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Tbs4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TBS 4" Height="410" Width="525">
+        Title="TBS 2" Height="410" Width="525">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -9,11 +9,14 @@
             <RowDefinition Height="23"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+            <Grid.ColumnDefinitions>            <!-- Anzahl Spalten --> 
+                <ColumnDefinition Width="*"/>   <!-- Spalte 1 -->
+                <ColumnDefinition Width="*"/>   <!-- Spalte 2 -->
+                <!-- if(numberOfCylinders > 2) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app - ->
+                <ColumnDefinition Width="*"/>   <!- - Spalte 3 - ->                
+                <!- - if(numberOfCylinders > 3) - -> <!- - this would make the display adapt to the number of cylinders committed by the Arduino app - ->
+                <ColumnDefinition Width="*"/>   <!- - Spalte 4 - -> 
+                -->                
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -105,6 +108,8 @@
                 </StackPanel>
                 <Label Name="tbs2RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
             </Grid>
+            <!-- if(numberOfCylinders > 2) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app -->
+            <!-- 
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -151,6 +156,9 @@
                 </StackPanel>
                 <Label Name="tbs3RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
             </Grid>
+            -->
+            <!-- if(numberOfCylinders > 3) --> <!-- this would make the display adapt to the number of cylinders committed by the Arduino app -->
+            <!--
             <Grid Grid.Column="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -196,6 +204,7 @@
                 </StackPanel>
                 <Label Name="tbs4RpmLabel" Content="1000 rpm" HorizontalAlignment="Right" VerticalAlignment="Center" FontFamily="Lucida Console" FontSize="10" Grid.Row="2" Margin="2,2" />
             </Grid>
+        -->
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
